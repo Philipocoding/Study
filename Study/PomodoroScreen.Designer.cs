@@ -31,8 +31,8 @@
             components = new System.ComponentModel.Container();
             lblTimer = new Label();
             PomodoroTimer = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
-            button1 = new Button();
+            pnlTimer = new Panel();
+            btnStartStop = new Button();
             btnDecrease = new Button();
             btnIncrease = new Button();
             SuspendLayout();
@@ -41,7 +41,7 @@
             // 
             lblTimer.AutoSize = true;
             lblTimer.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTimer.Location = new Point(332, 167);
+            lblTimer.Location = new Point(320, 167);
             lblTimer.Name = "lblTimer";
             lblTimer.Size = new Size(153, 65);
             lblTimer.TabIndex = 0;
@@ -50,23 +50,25 @@
             // PomodoroTimer
             // 
             PomodoroTimer.Interval = 1000;
+            PomodoroTimer.Tick += PomodoroTimer_Tick;
             // 
-            // panel1
+            // pnlTimer
             // 
-            panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(50, 280);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(689, 100);
-            panel1.TabIndex = 1;
+            pnlTimer.BackColor = SystemColors.ControlDark;
+            pnlTimer.Location = new Point(50, 280);
+            pnlTimer.Name = "pnlTimer";
+            pnlTimer.Size = new Size(689, 100);
+            pnlTimer.TabIndex = 1;
             // 
-            // button1
+            // btnStartStop
             // 
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnStartStop.Location = new Point(357, 235);
+            btnStartStop.Name = "btnStartStop";
+            btnStartStop.Size = new Size(75, 23);
+            btnStartStop.TabIndex = 2;
+            btnStartStop.Text = "Start";
+            btnStartStop.UseVisualStyleBackColor = true;
+            btnStartStop.Click += btnStartStop_Click;
             // 
             // btnDecrease
             // 
@@ -97,8 +99,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(btnIncrease);
             Controls.Add(btnDecrease);
-            Controls.Add(button1);
-            Controls.Add(panel1);
+            Controls.Add(btnStartStop);
+            Controls.Add(pnlTimer);
             Controls.Add(lblTimer);
             Name = "PomodoroScreen";
             Text = "PomodoroScreen";
@@ -111,8 +113,8 @@
 
         private Label lblTimer;
         private System.Windows.Forms.Timer PomodoroTimer;
-        private Panel panel1;
-        private Button button1;
+        private Panel pnlTimer;
+        private Button btnStartStop;
         private Button btnDecrease;
         private Button btnIncrease;
     }

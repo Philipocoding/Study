@@ -1,10 +1,18 @@
 namespace Study
 {
-    public partial class Form1 : Form
+    public partial class frmHome : Form
     {
-        public Form1()
+        public frmHome()
         {
             InitializeComponent();
+        }
+
+        private void btnPomodoro_Click(object sender, EventArgs e)
+        {
+            PomodoroScreen pomodoro = new PomodoroScreen();
+            this.Hide();
+            pomodoro.Show();
+            pomodoro.BringToFront();
         }
     }
 }

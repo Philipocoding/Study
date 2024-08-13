@@ -8,6 +8,12 @@ namespace Study
 {
     public class Timer
     {
-        public static DateTime Time { get; set; }
+        public static bool start = false;
+        public static int Minutes = 25;
+        public static int Seconds = 00;
+
+        
     }
+
+    
 }
