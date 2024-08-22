@@ -11,6 +11,7 @@ namespace Study
         public static bool start = false;
         public static int Minutes = 25;
         public static int Seconds = 00;
+        public static int nextState = 0; // 1 = break, 0 = study
 
         
     }
