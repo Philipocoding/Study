@@ -37,6 +37,7 @@
             btnIncrease = new Button();
             panel1 = new Panel();
             pnlComplete = new Panel();
+            label1 = new Label();
             pnlIncrease = new Panel();
             panel1.SuspendLayout();
             pnlComplete.SuspendLayout();
@@ -115,7 +116,7 @@
             panel1.Controls.Add(lblTimer);
             panel1.Controls.Add(btnStartStop);
             panel1.Controls.Add(btnDecrease);
-            panel1.Location = new Point(144, 193);
+            panel1.Location = new Point(217, 292);
             panel1.Name = "panel1";
             panel1.Size = new Size(518, 178);
             panel1.TabIndex = 1;
@@ -124,27 +125,38 @@
             // 
             pnlComplete.BackColor = Color.FromArgb(24, 154, 180);
             pnlComplete.Controls.Add(lblFinished);
-            pnlComplete.Location = new Point(2, 37);
+            pnlComplete.Location = new Point(75, 136);
             pnlComplete.Name = "pnlComplete";
             pnlComplete.Size = new Size(798, 100);
             pnlComplete.TabIndex = 1;
             pnlComplete.Visible = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(299, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(354, 86);
+            label1.TabIndex = 2;
+            label1.Text = "Pomodoro";
+            // 
             // pnlIncrease
             // 
-            pnlIncrease.BackColor = Color.FromArgb(212, 241, 9);
-            pnlIncrease.Location = new Point(121, 143);
+            pnlIncrease.BackColor = Color.FromArgb(24, 154, 180);
+            pnlIncrease.Location = new Point(48, 504);
             pnlIncrease.Name = "pnlIncrease";
-            pnlIncrease.Size = new Size(34, 31);
-            pnlIncrease.TabIndex = 1;
+            pnlIncrease.Size = new Size(52, 43);
+            pnlIncrease.TabIndex = 3;
             // 
             // PomodoroScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(212, 241, 244);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(989, 642);
             Controls.Add(pnlIncrease);
+            Controls.Add(label1);
             Controls.Add(pnlComplete);
             Controls.Add(panel1);
             Name = "PomodoroScreen";
@@ -155,6 +167,7 @@
             pnlComplete.ResumeLayout(false);
             pnlComplete.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -167,6 +180,7 @@
         private Label lblFinished;
         private Panel panel1;
         private Panel pnlComplete;
+        private Label label1;
         private Panel pnlIncrease;
     }
 }

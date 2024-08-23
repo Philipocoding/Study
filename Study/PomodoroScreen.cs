@@ -106,7 +106,9 @@ namespace Study
 
         private void PomodoroTimer_Tick(object sender, EventArgs e)
         {
+            pnlIncrease.Width += 20;
             updateTime();
+
         }
     }
 }

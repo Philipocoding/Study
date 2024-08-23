@@ -14,5 +14,12 @@ namespace Study
             pomodoro.Show();
             pomodoro.BringToFront();
         }
+
+        private void btnToDO_Click(object sender, EventArgs e)
+        {
+            ToDo screen  = new ToDo();
+            screen.Show();
+            this.Hide();
+        }
     }
 }
