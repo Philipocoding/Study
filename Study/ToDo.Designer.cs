@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             txtbEnterData = new TextBox();
             checkBox1 = new CheckBox();
             checkList = new CheckedListBox();
             btnAdd = new Button();
             label1 = new Label();
+            label2 = new Label();
+            timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // txtbEnterData
@@ -86,12 +89,28 @@
             label1.TabIndex = 4;
             label1.Text = "To Do!";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(772, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 50);
+            label2.TabIndex = 5;
+            label2.Text = "00:00";
+            // 
+            // timer
+            // 
+            timer.Interval = 1000;
+            timer.Tick += timer_Tick;
+            // 
             // ToDo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(212, 241, 244);
             ClientSize = new Size(989, 642);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnAdd);
             Controls.Add(checkList);
@@ -110,5 +129,7 @@
         private CheckedListBox checkList;
         private Button btnAdd;
         private Label label1;
+        private Label label2;
+        private System.Windows.Forms.Timer timer;
     }
 }

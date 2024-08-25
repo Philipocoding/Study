@@ -26,12 +26,17 @@ namespace Study
 
         private void checkList_KeyDown(object sender, KeyEventArgs e)
         {
-            if(Convert.ToInt32(e.KeyCode) == 13)
+            if (Convert.ToInt32(e.KeyCode) == 13)
             {
                 checkList.Items.Add(txtbEnterData.Text);
                 txtbEnterData.Text = "";
 
             }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            string text = Timer.Minutes.ToString();
         }
     }
 }

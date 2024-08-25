@@ -60,18 +60,9 @@ namespace Study
                 }
                 pnlIncrease.Width += 20;
             }
-            string text = "";
-            if (Timer.Seconds.ToString().Length == 1)
-            {
-                text = Timer.Minutes.ToString() + ":0" + Timer.Seconds.ToString();
-
-            }
-            else
-            {
-                text = Timer.Minutes.ToString() + ":" + Timer.Seconds.ToString();
-            }
+            
             pnlIncrease.Width = 0;
-            lblTimer.Text = text;
+            lblTimer.Text = Timer.Formatting();
         }
         public PomodoroScreen()
         {
