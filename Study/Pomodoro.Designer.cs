@@ -63,6 +63,7 @@
             btnStart.TabIndex = 2;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = true;
+            btnStart.Click += btnStart_Click;
             // 
             // Pomodoro
             // 

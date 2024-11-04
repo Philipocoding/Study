@@ -16,5 +16,10 @@ namespace Study
         {
             InitializeComponent();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

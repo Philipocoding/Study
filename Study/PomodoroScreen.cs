@@ -13,6 +13,7 @@ namespace Study
     public partial class PomodoroScreen : Form
     {
 
+        bool timerStarted = false;
         public void TimeOff()
         {
             
@@ -44,6 +45,7 @@ namespace Study
                     if (Timer.nextState == 0)
                     {
                         Timer.nextState = 1;
+                        timerStarted = false;
                         TimeOff();
 
                     }
@@ -64,6 +66,45 @@ namespace Study
             pnlIncrease.Width = 0;
             lblTimer.Text = Timer.Formatting();
         }
+
+        public void updateMinuteTime()
+        {
+            if (Timer.start)
+            {
+                if (Timer.Seconds == 0)
+                {
+                    Timer.Seconds = 59;
+                    Timer.Minutes = Timer.Minutes - 1;
+                }
+                
+                if ((Timer.Minutes == 0) && (Timer.Seconds == 0))
+                {
+                    Timer.start = false;
+                    PomodoroTimer.Stop();
+                    if (Timer.nextState == 0)
+                    {
+                        Timer.nextState = 1;
+                        timerStarted = false;
+                        TimeOff();
+
+                    }
+                    else
+                    {
+                        Timer.nextState = 1;
+                        Timer.Minutes = 25;
+                        Timer.Seconds = 0;
+                        pnlComplete.Visible = false;
+
+
+                    }
+
+                }
+                pnlIncrease.Width += 20;
+            }
+
+            pnlIncrease.Width = 0;
+            lblTimer.Text = Timer.Formatting();
+        }
         public PomodoroScreen()
         {
             InitializeComponent();
@@ -71,19 +112,27 @@ namespace Study
 
         private void PomodoroScreen_Load(object sender, EventArgs e)
         {
+            timerStarted = false;
             updateTime();
         }
 
         private void btnIncrease_Click(object sender, EventArgs e)
         {
             Timer.Minutes = Timer.Minutes + 1;
-            updateTime();
+            if (!timerStarted)
+            {
+                updateMinuteTime();
+            }
+            
         }
 
         private void btnDecrease_Click(object sender, EventArgs e)
         {
             Timer.Minutes = Timer.Minutes - 1;
-            updateTime();
+            if (!timerStarted)
+            {
+                updateMinuteTime();
+            }
 
         }
 
@@ -91,7 +140,8 @@ namespace Study
         {
             DateTime time = new DateTime(1, 1, 1, 1, Timer.Minutes, Timer.Seconds);
             Timer.start = true;
-            
+            timerStarted = true;
+
             PomodoroTimer.Start();
         }
 
